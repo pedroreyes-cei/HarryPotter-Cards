@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.section {
+
+    #gridContainer {
+        max-width: 1280px;
+        margin: auto;
+        background-color: rgb(242, 242, 242);
+        padding: 1rem;
+        border-radius: 1rem;
+
+        display: grid;
+        gap: 15px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+        .characterCard {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            border-radius: .5rem;
+            overflow: hidden;
+            transition: transform .2s;
+
+            &:hover span {
+                    background: linear-gradient(45deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+                } 
+
+            &.Gryffindor {
+                &:hover span {
+                    background: linear-gradient(45deg, rgba(255, 0, 0, 0.7), rgba(255, 0, 0, 0));
+                } 
+            }
+
+            &.Slytherin {
+                &:hover span {
+                    background: linear-gradient(45deg, rgba(0, 255, 17, 0.7), rgba(0, 255, 17, 0));
+                } 
+            }
+
+            &.Hufflepuff {
+                &:hover span {
+                    background: linear-gradient(45deg, rgba(255, 255, 0, 0.7), rgba(255, 255, 0, 0));
+                } 
+            }
+
+            &.Ravenclaw {
+                &:hover span {
+                    background: linear-gradient(45deg, rgba(0, 42, 255, 0.7), rgba(255, 42, 255, 0));
+                } 
+            }
+
+            .imageBlock {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                position: relative;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+
+                div {
+                    display: flex;
+                    gap: 1rem;
+                    justify-content: space-between;
+
+                    font-size: 1.2rem;
+                    position: absolute;
+                    bottom: 1rem;
+                    left: 1rem;
+                    color: white;
+                    font-weight: 200;
+                    z-index: 1;
+
+                    opacity: 0;
+                    transition: .3s;
+                }
+
+                span {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    transition: .3s;
+                    opacity: 0;
+                }
+            }
+        
+            &:hover {
+                transform: scale(1.02);
+                cursor: pointer;
+
+                .imageBlock {
+                    div {
+                       opacity: 1;
+                    }
+
+                    span {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+} 
